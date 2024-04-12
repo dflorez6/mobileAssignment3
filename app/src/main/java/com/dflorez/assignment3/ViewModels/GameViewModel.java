@@ -16,6 +16,9 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+import android.os.Handler;
+import android.os.Looper;
+
 public class GameViewModel extends ViewModel {
 
     //==========
@@ -89,7 +92,7 @@ public class GameViewModel extends ViewModel {
     //====================
     // Methods
     //====================
-    public void playGame(Context context, ImageView[] imageViews) {
+    public void playGame(Context context, ImageView[] imageViews, TextView countDownTV) {
         // Choose random tiles (ImageViews)
         int squaresToRemember = gameClass.getSquaresToRemember();
         Random random = new Random();
@@ -102,5 +105,32 @@ public class GameViewModel extends ViewModel {
         for (int index : chosenArrayIndices) {
             imageViews[index].setBackgroundColor(ContextCompat.getColor(context, R.color.tileOn));
         }
+
+        // Runnable to show the tiles light up for 5 seconds and the countdown timer going down to from 5 to 0 seconds
+        //  Once its over, reset tiles back to the original color
+        final int[] counter = {5}; // 5 seconds to play
+        final Handler handler = new Handler(Looper.getMainLooper());
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Checks if count has reached 0 "seconds"
+                if (counter[0] >= 0) {
+                    countDownTV.setText(String.valueOf(counter[0]));
+                    counter[0]--;
+                    // Repeat every second
+                    handler.postDelayed(this, 1000);
+                } else {
+                    // Go back to the original tile color after 5 seconds
+                    for (int index : chosenArrayIndices) {
+                        imageViews[index].setBackgroundColor(ContextCompat.getColor(context, R.color.tileOff));
+                    }
+
+                    // Reset countdown timer
+                    countDownTV.setText("5");
+                }
+            }
+        }, 1000);
+
+
     }
 }

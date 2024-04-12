@@ -23,6 +23,6 @@
     <string name="game_label_squares">Squares: </string>
     <string name="high_scores_title">Top 3 High Scores</string>
     <string name="zero">0</string>
-
+    <string name="game_countdown_time">5</string>
 
 </resources>

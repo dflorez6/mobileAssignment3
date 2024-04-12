@@ -36,7 +36,7 @@ public class Game extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ImageView menu;
     LinearLayout home, game, high_score;
-    TextView playerNameTV, scoreTV, roundTV, squaresToRememberTV;
+    TextView playerNameTV, scoreTV, roundTV, squaresToRememberTV, countDownTV;
     Button btnPlay;
 
     @Override
@@ -70,6 +70,7 @@ public class Game extends AppCompatActivity {
         scoreTV = findViewById(R.id.txtScore);
         roundTV = findViewById(R.id.txtRound);
         squaresToRememberTV = findViewById(R.id.txtSquares);
+        countDownTV = findViewById(R.id.txtCountDownTimer);
         btnPlay = findViewById(R.id.btnPlay);
 
         // Observe LiveData and update UI
@@ -142,23 +143,9 @@ public class Game extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i("tag", "Play Game");
-               /*
-                // Choose random tiles
-                int squaresToRemember = viewModel.getGameData().getValue().getSquaresToRemember(); // Get the number of squares to remember from the ViewModel
 
-                // Choose random ImageViews to change their background color
-                Random random = new Random();
-                Set<Integer> chosenIndices = new HashSet<>();
-                while (chosenIndices.size() < squaresToRemember) {
-                    chosenIndices.add(random.nextInt(imageViews.length));
-                }
-
-                // Change background color of the chosen ImageViews
-                for (int index : chosenIndices) {
-                    imageViews[index].setBackgroundColor(ContextCompat.getColor(Game.this, R.color.tileOn));
-                }
-                */
-                viewModel.playGame(getApplicationContext(), imageViews);
+                // Call ViewModel Method to play the game
+                viewModel.playGame(getApplicationContext(), imageViews, countDownTV);
 
                 // TODO: Implement logic to remember which ImageViews were chosen and compare with the user's input
 
