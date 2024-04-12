@@ -16,6 +16,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.dflorez.assignment3.R;
 
+import com.dflorez.assignment3.Helpers.ScoresManager; // Import Helper Class
+
 public class Game extends AppCompatActivity {
 
     // References
@@ -29,6 +31,12 @@ public class Game extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        // TODO: Remove after testing
+        // Add Scores
+        ScoresManager.addScore(getApplicationContext(), "Kanut", 140);
+        ScoresManager.addScore(getApplicationContext(), "Bailey", 110);
+
 
         //====================
         // Play Game

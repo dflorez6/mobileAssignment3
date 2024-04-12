@@ -20,11 +20,23 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="High Score"
-            android:layout_gravity="center"
-            android:layout_marginTop="400dp"
-            android:textSize="30sp"
-            android:textColor="@color/black"/>
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/high_scores_title"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/txtScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <!-- Add the drawer -->
@@ -36,6 +48,6 @@
 
         <include
             layout="@layout/nav_drawer"/>
-    </RelativeLayout>ﬁ
+    </RelativeLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

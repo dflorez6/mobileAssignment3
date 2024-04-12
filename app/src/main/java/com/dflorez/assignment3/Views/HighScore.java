@@ -2,16 +2,23 @@ package com.dflorez.assignment3.Views;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.dflorez.assignment3.R;
+
+import java.util.List;
+
+import com.dflorez.assignment3.Helpers.ScoresManager; // Import Helper Class
 
 public class HighScore extends AppCompatActivity {
 
@@ -25,8 +32,23 @@ public class HighScore extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_score);
 
+        //====================
+        // Display Saved HighScores (SharedPreferences)
+        //====================
+        // TODO: Only used during development
+        // Reset Stored Scores
+        // ScoresManager.resetHighScores(getApplicationContext());
 
+        // Retrieve the high scores
+        List<String> highScores = ScoresManager.getHighscores(getApplicationContext());
 
+        // Display Stored Scores
+        TextView txtScore = findViewById(R.id.txtScore);
+        StringBuilder stringBuilder = new StringBuilder();
+        for(int i = 0; i < highScores.size(); i++) {
+            stringBuilder.append((i + 1)).append(". ").append(highScores.get(i)).append("\n\n");
+        }
+        txtScore.setText(stringBuilder.toString());
 
 
         //====================
@@ -57,7 +79,7 @@ public class HighScore extends AppCompatActivity {
         });
 
         // Game
-        high_score.setOnClickListener(new View.OnClickListener() {
+        game.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 redirectActivity(HighScore.this, Game.class); // redirects to Game activity
@@ -65,7 +87,7 @@ public class HighScore extends AppCompatActivity {
         });
 
         // High Score Item
-        home.setOnClickListener(new View.OnClickListener() {
+        high_score.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 recreate();
