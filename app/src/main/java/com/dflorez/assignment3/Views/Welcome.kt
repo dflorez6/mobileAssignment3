@@ -8,14 +8,17 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.ViewModelProvider
 import com.dflorez.assignment3.R
-import com.google.android.material.textfield.TextInputEditText
+import com.dflorez.assignment3.ViewModels.GameViewModel
 
 class Welcome : AppCompatActivity() {
+
+    // ViewModel
+    lateinit var viewModel: GameViewModel
 
     // References
     lateinit var drawerLayout: DrawerLayout
@@ -32,16 +35,23 @@ class Welcome : AppCompatActivity() {
         //====================
         // Start Game
         //====================
+        // Instantiate the ViewModel with a reference to the ViewModel Class
+        viewModel = ViewModelProvider(this).get(GameViewModel::class.java)
+
         // Binding
-        var inputName : EditText = findViewById(R.id.playerNameET)
+        var playerNameFromInput : EditText = findViewById(R.id.playerNameET)
         val btnStartGame:Button = findViewById(R.id.btnStartGame)
 
         // Button Handler
         btnStartGame.setOnClickListener() {
-            Log.i("tag", "Start Game Clicked")
-            val intent = Intent(this, Game::class.java)
-            intent.putExtra("playerName", inputName.text.toString())
-            startActivity(intent)
+            var playerName : String = playerNameFromInput.text.toString()
+
+            // Redirect to Game Activity
+            redirectActivity(
+                this,
+                Game::class.java,
+                playerName
+            )
         }
 
 
@@ -69,7 +79,8 @@ class Welcome : AppCompatActivity() {
         game.setOnClickListener {
             redirectActivity(
                 this,
-                Game::class.java
+                Game::class.java,
+                viewModel.playerName.value
             ) // redirects to Game activity
         }
 
@@ -77,7 +88,8 @@ class Welcome : AppCompatActivity() {
         high_score.setOnClickListener {
             redirectActivity(
                 this,
-                HighScore::class.java
+                HighScore::class.java,
+                viewModel.playerName.value
             )
         }
 
@@ -87,10 +99,10 @@ class Welcome : AppCompatActivity() {
     // Methods
     //==========
     // Method to redirect to another activity
-    fun redirectActivity(activity: Activity, secondActivity: Class<*>?) {
+    fun redirectActivity(activity: Activity, secondActivity: Class<*>?, playerName: String?) {
         val intent = Intent(activity, secondActivity)
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        intent.putExtra("playerName", "") // TODO: Update with LiveData reflecting Name
+        intent.putExtra("playerName", playerName)
         activity.startActivity(intent)
         activity.finish() // Destroy current activity
     }

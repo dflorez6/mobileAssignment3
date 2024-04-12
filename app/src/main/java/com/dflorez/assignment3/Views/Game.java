@@ -15,12 +15,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.dflorez.assignment3.R;
 
+import com.dflorez.assignment3.Models.GameClass; // Import Game Class
 import com.dflorez.assignment3.Helpers.ScoresManager; // Import Helper Class
+import com.dflorez.assignment3.ViewModels.GameViewModel;
 
 public class Game extends AppCompatActivity {
+
+    // ViewModel
+    GameViewModel viewModel;
 
     // References
     DrawerLayout drawerLayout;
@@ -45,26 +51,49 @@ public class Game extends AppCompatActivity {
         //====================
         // Play Game
         //====================
-        // Binding
-        Log.i("tag", "Play Game Starts: ");
+        Log.i("tag", "Play Game Starts");
+        // TODO: All logs -> package:com.dflorez.assignment3
 
+        // Instantiate the ViewModel with a reference to the ViewModel Class
+        viewModel = new ViewModelProvider(this).get(GameViewModel.class);
+
+        // Binding
+        TextView playerNameTV = findViewById(R.id.txtPlayerName);
         Button btnPlay = findViewById(R.id.btnPlay);
         Intent intent = getIntent();
 
         // Get Intent Extras
-        String playerName = intent.getStringExtra("playerName");
+        String playerNameFromIntent = intent.getStringExtra("playerName");
 
-        // Used for testing
-        TextView test = findViewById(R.id.txtPlayerName);
-        // Checks if player name is empty (Intent from Welcome activity)
-        if (playerName.isEmpty()) {
-            test.setText(getString(R.string.game_empty_player_name));
-        } else {
-            test.setText(playerName);
+        // Pass playerNameFromIntent to the ViewModel (MutableLiveData)
+        viewModel.setPlayerName(playerNameFromIntent);
+
+        // Observe playerName LiveData
+        viewModel.getPlayerName().observe(this, playerName -> {
+
+            // Checks if player name is empty
+            if (playerName.isEmpty()) {
+                playerNameTV.setText(getString(R.string.game_empty_player_name));
+            } else {
+                playerNameTV.setText(playerName);
+            }
+        });
+
+
+        viewModel.getPlayerName().observe(this, name -> {
+            Log.i("tag", "playerName observed -> " + name);
+        });
+
+
+
+        // TODO: Testing Game class
+        /*
+        GameClass gameClass = new GameClass(); // Initialize Game
+        String[] gameBoard = gameClass.getGameBoard();
+        for (String tile : gameBoard) {
+            Log.i("tag", tile);
         }
-
-        Log.i("tag", "Play Game Starts: ");
-
+        */
 
         // Play Handler
         btnPlay.setOnClickListener(new View.OnClickListener() {
@@ -98,7 +127,7 @@ public class Game extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                redirectActivity(Game.this, Welcome.class); // redirects to Game activity
+                redirectActivity(Game.this, Welcome.class, viewModel.getPlayerName().getValue()); // redirects to Game activity
             }
         });
 
@@ -114,7 +143,7 @@ public class Game extends AppCompatActivity {
         high_score.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                redirectActivity(Game.this, HighScore.class); // redirects to Game activity
+                redirectActivity(Game.this, HighScore.class, viewModel.getPlayerName().getValue()); // redirects to Game activity
             }
         });
     }
@@ -123,10 +152,10 @@ public class Game extends AppCompatActivity {
     // Methods
     //==========
     // Method to redirect to another activity
-    public static void redirectActivity(Activity activity, Class secondActivity) {
+    public static void redirectActivity(Activity activity, Class secondActivity, String playerName) {
         Intent intent = new Intent(activity, secondActivity);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra("playerName", ""); // TODO: Update with LiveData reflecting Name
+        intent.putExtra("playerName", playerName); // TODO: Update with LiveData reflecting Name
         activity.startActivity(intent);
         activity.finish(); // Destroy current activity
     }

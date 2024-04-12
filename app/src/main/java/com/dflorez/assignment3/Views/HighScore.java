@@ -13,14 +13,19 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.dflorez.assignment3.R;
 
 import java.util.List;
 
 import com.dflorez.assignment3.Helpers.ScoresManager; // Import Helper Class
+import com.dflorez.assignment3.ViewModels.GameViewModel;
 
 public class HighScore extends AppCompatActivity {
+
+    // ViewModel
+    GameViewModel viewModel;
 
     // References
     DrawerLayout drawerLayout;
@@ -38,6 +43,9 @@ public class HighScore extends AppCompatActivity {
         // TODO: Only used during development
         // Reset Stored Scores
         // ScoresManager.resetHighScores(getApplicationContext());
+
+        // Instantiate the ViewModel with a reference to the ViewModel Class
+        viewModel = new ViewModelProvider(this).get(GameViewModel.class);
 
         // Retrieve the high scores
         List<String> highScores = ScoresManager.getHighscores(getApplicationContext());
@@ -74,7 +82,7 @@ public class HighScore extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                redirectActivity(HighScore.this, Welcome.class); // redirects to Game activity
+                redirectActivity(HighScore.this, Welcome.class, viewModel.getPlayerName().getValue());
             }
         });
 
@@ -82,7 +90,7 @@ public class HighScore extends AppCompatActivity {
         game.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                redirectActivity(HighScore.this, Game.class); // redirects to Game activity
+                redirectActivity(HighScore.this, Game.class, viewModel.getPlayerName().getValue()); // redirects to Game activity
             }
         });
 
@@ -98,10 +106,10 @@ public class HighScore extends AppCompatActivity {
 
     // Methods
     // Method to redirect to another activity
-    public static void redirectActivity(Activity activity, Class secondActivity) {
+    public static void redirectActivity(Activity activity, Class secondActivity, String playerName) {
         Intent intent = new Intent(activity, secondActivity);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra("playerName", ""); // TODO: Update with LiveData reflecting Name
+        intent.putExtra("playerName", playerName); // TODO: Update with LiveData reflecting Name
         activity.startActivity(intent);
         activity.finish(); // Destroy current activity
     }
