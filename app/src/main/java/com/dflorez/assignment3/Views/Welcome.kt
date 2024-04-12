@@ -90,6 +90,7 @@ class Welcome : AppCompatActivity() {
     fun redirectActivity(activity: Activity, secondActivity: Class<*>?) {
         val intent = Intent(activity, secondActivity)
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        intent.putExtra("playerName", "") // TODO: Update with LiveData reflecting Name
         activity.startActivity(intent)
         activity.finish() // Destroy current activity
     }

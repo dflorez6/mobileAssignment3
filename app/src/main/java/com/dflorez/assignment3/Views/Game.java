@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -25,7 +27,9 @@ public class Game extends AppCompatActivity {
     ImageView menu;
     LinearLayout home, game, high_score;
 
-
+    // Constants
+    private static final int NUM_ROWS = 6;
+    private static final int NUM_COLS = 6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,17 +46,24 @@ public class Game extends AppCompatActivity {
         // Play Game
         //====================
         // Binding
+        Log.i("tag", "Play Game Starts: ");
+
         Button btnPlay = findViewById(R.id.btnPlay);
         Intent intent = getIntent();
 
         // Get Intent Extras
         String playerName = intent.getStringExtra("playerName");
 
-        // TODO:
-
         // Used for testing
-        TextView test = findViewById(R.id.txtTest);
-        test.setText(playerName);
+        TextView test = findViewById(R.id.txtPlayerName);
+        // Checks if player name is empty (Intent from Welcome activity)
+        if (playerName.isEmpty()) {
+            test.setText(getString(R.string.game_empty_player_name));
+        } else {
+            test.setText(playerName);
+        }
+
+        Log.i("tag", "Play Game Starts: ");
 
 
         // Play Handler
@@ -115,6 +126,7 @@ public class Game extends AppCompatActivity {
     public static void redirectActivity(Activity activity, Class secondActivity) {
         Intent intent = new Intent(activity, secondActivity);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("playerName", ""); // TODO: Update with LiveData reflecting Name
         activity.startActivity(intent);
         activity.finish(); // Destroy current activity
     }

@@ -43,7 +43,7 @@ public class HighScore extends AppCompatActivity {
         List<String> highScores = ScoresManager.getHighscores(getApplicationContext());
 
         // Display Stored Scores
-        TextView txtScore = findViewById(R.id.txtScore);
+        TextView txtScore = findViewById(R.id.txtHighScores);
         StringBuilder stringBuilder = new StringBuilder();
         for(int i = 0; i < highScores.size(); i++) {
             stringBuilder.append((i + 1)).append(". ").append(highScores.get(i)).append("\n\n");
@@ -101,6 +101,7 @@ public class HighScore extends AppCompatActivity {
     public static void redirectActivity(Activity activity, Class secondActivity) {
         Intent intent = new Intent(activity, secondActivity);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("playerName", ""); // TODO: Update with LiveData reflecting Name
         activity.startActivity(intent);
         activity.finish(); // Destroy current activity
     }
