@@ -3,4 +3,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="tileOff">#6E6E6E</color>
+    <color name="tileOn">#673AB7</color>
 </resources>

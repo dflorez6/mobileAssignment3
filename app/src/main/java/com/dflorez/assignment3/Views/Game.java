@@ -23,6 +23,10 @@ import com.dflorez.assignment3.Models.GameClass; // Import Game Class
 import com.dflorez.assignment3.Helpers.ScoresManager; // Import Helper Class
 import com.dflorez.assignment3.ViewModels.GameViewModel;
 
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+
 public class Game extends AppCompatActivity {
 
     // ViewModel
@@ -32,10 +36,8 @@ public class Game extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ImageView menu;
     LinearLayout home, game, high_score;
-
-    // Constants
-    private static final int NUM_ROWS = 6;
-    private static final int NUM_COLS = 6;
+    TextView playerNameTV, scoreTV, roundTV, squaresToRememberTV;
+    Button btnPlay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +49,6 @@ public class Game extends AppCompatActivity {
         ScoresManager.addScore(getApplicationContext(), "Kanut", 140);
         ScoresManager.addScore(getApplicationContext(), "Bailey", 110);
 
-
         //====================
         // Play Game
         //====================
@@ -57,34 +58,27 @@ public class Game extends AppCompatActivity {
         // Instantiate the ViewModel with a reference to the ViewModel Class
         viewModel = new ViewModelProvider(this).get(GameViewModel.class);
 
-        // Binding
-        TextView playerNameTV = findViewById(R.id.txtPlayerName);
-        Button btnPlay = findViewById(R.id.btnPlay);
-        Intent intent = getIntent();
-
         // Get Intent Extras
+        Intent intent = getIntent();
         String playerNameFromIntent = intent.getStringExtra("playerName");
 
         // Pass playerNameFromIntent to the ViewModel (MutableLiveData)
         viewModel.setPlayerName(playerNameFromIntent);
 
-        // Observe playerName LiveData
-        viewModel.getPlayerName().observe(this, playerName -> {
+        // Binding
+        playerNameTV = findViewById(R.id.txtPlayerName);
+        scoreTV = findViewById(R.id.txtScore);
+        roundTV = findViewById(R.id.txtRound);
+        squaresToRememberTV = findViewById(R.id.txtSquares);
+        btnPlay = findViewById(R.id.btnPlay);
 
-            // Checks if player name is empty
-            if (playerName.isEmpty()) {
-                playerNameTV.setText(getString(R.string.game_empty_player_name));
-            } else {
-                playerNameTV.setText(playerName);
-            }
+        // Observe LiveData and update UI
+        viewModel.getGameData().observe(this, gameData -> {
+            playerNameTV.setText(gameData.getPlayerName());
+            scoreTV.setText((String.valueOf(gameData.getScore())));
+            roundTV.setText(String.valueOf(gameData.getRound()));
+            squaresToRememberTV.setText(String.valueOf(gameData.getSquaresToRemember()));
         });
-
-
-        viewModel.getPlayerName().observe(this, name -> {
-            Log.i("tag", "playerName observed -> " + name);
-        });
-
-
 
         // TODO: Testing Game class
         /*
@@ -95,11 +89,79 @@ public class Game extends AppCompatActivity {
         }
         */
 
+        // Add references to the tiles (ImageViews)
+        ImageView tileA1 = findViewById(R.id.tileA1);
+        ImageView tileA2 = findViewById(R.id.tileA2);
+        ImageView tileA3 = findViewById(R.id.tileA3);
+        ImageView tileA4 = findViewById(R.id.tileA4);
+        ImageView tileA5 = findViewById(R.id.tileA5);
+        ImageView tileA6 = findViewById(R.id.tileA6);
+        ImageView tileB1 = findViewById(R.id.tileB1);
+        ImageView tileB2 = findViewById(R.id.tileB2);
+        ImageView tileB3 = findViewById(R.id.tileB3);
+        ImageView tileB4 = findViewById(R.id.tileB4);
+        ImageView tileB5 = findViewById(R.id.tileB5);
+        ImageView tileB6 = findViewById(R.id.tileB6);
+        ImageView tileC1 = findViewById(R.id.tileC1);
+        ImageView tileC2 = findViewById(R.id.tileC2);
+        ImageView tileC3 = findViewById(R.id.tileC3);
+        ImageView tileC4 = findViewById(R.id.tileC4);
+        ImageView tileC5 = findViewById(R.id.tileC5);
+        ImageView tileC6 = findViewById(R.id.tileC6);
+        ImageView tileD1 = findViewById(R.id.tileD1);
+        ImageView tileD2 = findViewById(R.id.tileD2);
+        ImageView tileD3 = findViewById(R.id.tileD3);
+        ImageView tileD4 = findViewById(R.id.tileD4);
+        ImageView tileD5 = findViewById(R.id.tileD5);
+        ImageView tileD6 = findViewById(R.id.tileD6);
+        ImageView tileE1 = findViewById(R.id.tileE1);
+        ImageView tileE2 = findViewById(R.id.tileE2);
+        ImageView tileE3 = findViewById(R.id.tileE3);
+        ImageView tileE4 = findViewById(R.id.tileE4);
+        ImageView tileE5 = findViewById(R.id.tileE5);
+        ImageView tileE6 = findViewById(R.id.tileE6);
+        ImageView tileF1 = findViewById(R.id.tileF1);
+        ImageView tileF2 = findViewById(R.id.tileF2);
+        ImageView tileF3 = findViewById(R.id.tileF3);
+        ImageView tileF4 = findViewById(R.id.tileF4);
+        ImageView tileF5 = findViewById(R.id.tileF5);
+        ImageView tileF6 = findViewById(R.id.tileF6);
+
+        // Store tiles in an array (used for randomizing tiles that light up)
+        ImageView[] imageViews = {
+                tileA1, tileA2, tileA3, tileA4, tileA5, tileA6,
+                tileB1, tileB2, tileB3, tileB4, tileB5, tileB6,
+                tileC1, tileC2, tileC3, tileC4, tileC5, tileC6,
+                tileD1, tileD2, tileD3, tileD4, tileD5, tileD6,
+                tileE1, tileE2, tileE3, tileE4, tileE5, tileE6,
+                tileF1, tileF2, tileF3, tileF4, tileF5, tileF6
+        };
+
         // Play Handler
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i("tag", "Play Game");
+               /*
+                // Choose random tiles
+                int squaresToRemember = viewModel.getGameData().getValue().getSquaresToRemember(); // Get the number of squares to remember from the ViewModel
+
+                // Choose random ImageViews to change their background color
+                Random random = new Random();
+                Set<Integer> chosenIndices = new HashSet<>();
+                while (chosenIndices.size() < squaresToRemember) {
+                    chosenIndices.add(random.nextInt(imageViews.length));
+                }
+
+                // Change background color of the chosen ImageViews
+                for (int index : chosenIndices) {
+                    imageViews[index].setBackgroundColor(ContextCompat.getColor(Game.this, R.color.tileOn));
+                }
+                */
+                viewModel.playGame(getApplicationContext(), imageViews);
+
+                // TODO: Implement logic to remember which ImageViews were chosen and compare with the user's input
+
             }
         });
 

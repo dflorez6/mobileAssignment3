@@ -144,43 +144,43 @@
             android:layout_marginBottom="5dp">
             <ImageView
                 android:id="@+id/tileA1"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 />
             <ImageView
                 android:id="@+id/tileA2"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileA1"/>
             <ImageView
                 android:id="@+id/tileA3"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileA2"/>
             <ImageView
                 android:id="@+id/tileA4"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileA3"/>
             <ImageView
                 android:id="@+id/tileA5"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileA4"/>
             <ImageView
                 android:id="@+id/tileA6"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileA5"/>
         </RelativeLayout>
@@ -195,43 +195,43 @@
             android:layout_marginBottom="5dp">
             <ImageView
                 android:id="@+id/tileB1"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 />
             <ImageView
                 android:id="@+id/tileB2"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileB1"/>
             <ImageView
                 android:id="@+id/tileB3"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileB2"/>
             <ImageView
                 android:id="@+id/tileB4"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileB3"/>
             <ImageView
                 android:id="@+id/tileB5"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileB4"/>
             <ImageView
                 android:id="@+id/tileB6"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileB5"/>
         </RelativeLayout>
@@ -246,43 +246,43 @@
             android:layout_marginBottom="5dp">
             <ImageView
                 android:id="@+id/tileC1"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 />
             <ImageView
                 android:id="@+id/tileC2"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileC1"/>
             <ImageView
                 android:id="@+id/tileC3"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileC2"/>
             <ImageView
                 android:id="@+id/tileC4"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileC3"/>
             <ImageView
                 android:id="@+id/tileC5"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileC4"/>
             <ImageView
                 android:id="@+id/tileC6"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileC5"/>
         </RelativeLayout>
@@ -297,43 +297,43 @@
             android:layout_marginBottom="5dp">
             <ImageView
                 android:id="@+id/tileD1"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 />
             <ImageView
                 android:id="@+id/tileD2"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileD1"/>
             <ImageView
                 android:id="@+id/tileD3"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileD2"/>
             <ImageView
                 android:id="@+id/tileD4"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileD3"/>
             <ImageView
                 android:id="@+id/tileD5"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileD4"/>
             <ImageView
                 android:id="@+id/tileD6"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileD5"/>
         </RelativeLayout>
@@ -348,43 +348,43 @@
             android:layout_marginBottom="5dp">
             <ImageView
                 android:id="@+id/tileE1"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 />
             <ImageView
                 android:id="@+id/tileE2"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileE1"/>
             <ImageView
                 android:id="@+id/tileE3"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileE2"/>
             <ImageView
                 android:id="@+id/tileE4"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileE3"/>
             <ImageView
                 android:id="@+id/tileE5"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileE4"/>
             <ImageView
                 android:id="@+id/tileE6"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileE5"/>
         </RelativeLayout>
@@ -399,43 +399,43 @@
             android:layout_marginBottom="5dp">
             <ImageView
                 android:id="@+id/tileF1"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 />
             <ImageView
                 android:id="@+id/tileF2"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileF1"/>
             <ImageView
                 android:id="@+id/tileF3"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileF2"/>
             <ImageView
                 android:id="@+id/tileF4"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileF3"/>
             <ImageView
                 android:id="@+id/tileF5"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileF4"/>
             <ImageView
                 android:id="@+id/tileF6"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:background="@color/tileOff"
                 android:layout_toEndOf="@+id/tileF5"/>
         </RelativeLayout>
