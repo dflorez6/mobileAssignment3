@@ -149,6 +149,7 @@
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
+                android:tag="tileA1"
                 />
             <ImageView
                 android:id="@+id/tileA2"
@@ -156,34 +157,39 @@
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileA1"/>
+                android:layout_toEndOf="@+id/tileA1"
+                android:tag="tileA2"/>
             <ImageView
                 android:id="@+id/tileA3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileA2"/>
+                android:layout_toEndOf="@+id/tileA2"
+                android:tag="tileA3"/>
             <ImageView
                 android:id="@+id/tileA4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileA3"/>
+                android:layout_toEndOf="@+id/tileA3"
+                android:tag="tileA4"/>
             <ImageView
                 android:id="@+id/tileA5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileA4"/>
+                android:layout_toEndOf="@+id/tileA4"
+                android:tag="tileA5"/>
             <ImageView
                 android:id="@+id/tileA6"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileA5"/>
+                android:layout_toEndOf="@+id/tileA5"
+                android:tag="tileA6"/>
         </RelativeLayout>
 
         <!-- Row B -->
@@ -200,6 +206,7 @@
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
+                android:tag="tileB1"
                 />
             <ImageView
                 android:id="@+id/tileB2"
@@ -207,34 +214,39 @@
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileB1"/>
+                android:layout_toEndOf="@+id/tileB1"
+                android:tag="tileB2"/>
             <ImageView
                 android:id="@+id/tileB3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileB2"/>
+                android:layout_toEndOf="@+id/tileB2"
+                android:tag="tileB3"/>
             <ImageView
                 android:id="@+id/tileB4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileB3"/>
+                android:layout_toEndOf="@+id/tileB3"
+                android:tag="tileB4"/>
             <ImageView
                 android:id="@+id/tileB5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileB4"/>
+                android:layout_toEndOf="@+id/tileB4"
+                android:tag="tileB5"/>
             <ImageView
                 android:id="@+id/tileB6"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileB5"/>
+                android:layout_toEndOf="@+id/tileB5"
+                android:tag="tileB6"/>
         </RelativeLayout>
 
         <!-- Row C -->
@@ -251,6 +263,7 @@
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
+                android:tag="tileC1"
                 />
             <ImageView
                 android:id="@+id/tileC2"
@@ -258,34 +271,39 @@
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileC1"/>
+                android:layout_toEndOf="@+id/tileC1"
+                android:tag="tileC2"/>
             <ImageView
                 android:id="@+id/tileC3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileC2"/>
+                android:layout_toEndOf="@+id/tileC2"
+                android:tag="tileC3"/>
             <ImageView
                 android:id="@+id/tileC4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileC3"/>
+                android:layout_toEndOf="@+id/tileC3"
+                android:tag="tileC4"/>
             <ImageView
                 android:id="@+id/tileC5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileC4"/>
+                android:layout_toEndOf="@+id/tileC4"
+                android:tag="tileC5"/>
             <ImageView
                 android:id="@+id/tileC6"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileC5"/>
+                android:layout_toEndOf="@+id/tileC5"
+                android:tag="tileC5"/>
         </RelativeLayout>
 
         <!-- Row D -->
@@ -302,6 +320,7 @@
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
+                android:tag="tileD1"
                 />
             <ImageView
                 android:id="@+id/tileD2"
@@ -309,34 +328,39 @@
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileD1"/>
+                android:layout_toEndOf="@+id/tileD1"
+                android:tag="tileD2"/>
             <ImageView
                 android:id="@+id/tileD3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileD2"/>
+                android:layout_toEndOf="@+id/tileD2"
+                android:tag="tileD3"/>
             <ImageView
                 android:id="@+id/tileD4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileD3"/>
+                android:layout_toEndOf="@+id/tileD3"
+                android:tag="tileD4"/>
             <ImageView
                 android:id="@+id/tileD5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileD4"/>
+                android:layout_toEndOf="@+id/tileD4"
+                android:tag="tileD5"/>
             <ImageView
                 android:id="@+id/tileD6"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileD5"/>
+                android:layout_toEndOf="@+id/tileD5"
+                android:tag="tileD6"/>
         </RelativeLayout>
 
         <!-- Row E -->
@@ -353,6 +377,7 @@
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
+                android:tag="tileE1"
                 />
             <ImageView
                 android:id="@+id/tileE2"
@@ -360,34 +385,39 @@
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileE1"/>
+                android:layout_toEndOf="@+id/tileE1"
+                android:tag="tileE2"/>
             <ImageView
                 android:id="@+id/tileE3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileE2"/>
+                android:layout_toEndOf="@+id/tileE2"
+                android:tag="tileE3"/>
             <ImageView
                 android:id="@+id/tileE4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileE3"/>
+                android:layout_toEndOf="@+id/tileE3"
+                android:tag="tileE4"/>
             <ImageView
                 android:id="@+id/tileE5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileE4"/>
+                android:layout_toEndOf="@+id/tileE4"
+                android:tag="tileE5"/>
             <ImageView
                 android:id="@+id/tileE6"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileE5"/>
+                android:layout_toEndOf="@+id/tileE5"
+                android:tag="tileE6"/>
         </RelativeLayout>
 
         <!-- Row F -->
@@ -404,6 +434,7 @@
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
+                android:tag="tileF1"
                 />
             <ImageView
                 android:id="@+id/tileF2"
@@ -411,34 +442,39 @@
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileF1"/>
+                android:layout_toEndOf="@+id/tileF1"
+                android:tag="tileF2"/>
             <ImageView
                 android:id="@+id/tileF3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileF2"/>
+                android:layout_toEndOf="@+id/tileF2"
+                android:tag="tileF3"/>
             <ImageView
                 android:id="@+id/tileF4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileF3"/>
+                android:layout_toEndOf="@+id/tileF3"
+                android:tag="tileF4"/>
             <ImageView
                 android:id="@+id/tileF5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileF4"/>
+                android:layout_toEndOf="@+id/tileF4"
+                android:tag="tileF5"/>
             <ImageView
                 android:id="@+id/tileF6"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@color/tileOff"
-                android:layout_toEndOf="@+id/tileF5"/>
+                android:layout_toEndOf="@+id/tileF5"
+                android:tag="tileF6"/>
         </RelativeLayout>
         <!-- ./GameBoard -->
         <Button

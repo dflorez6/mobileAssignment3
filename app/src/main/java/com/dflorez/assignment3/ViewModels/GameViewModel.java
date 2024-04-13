@@ -1,6 +1,8 @@
 package com.dflorez.assignment3.ViewModels;
 
+import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,7 +14,9 @@ import com.dflorez.assignment3.Models.GameClass;
 import com.dflorez.assignment3.R;
 import com.dflorez.assignment3.Views.Game;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
@@ -96,12 +100,73 @@ public class GameViewModel extends ViewModel {
         // Choose random tiles (ImageViews)
         int squaresToRemember = gameClass.getSquaresToRemember();
         Random random = new Random();
+        List<String> activeTileIds = new ArrayList<>(); // Will hold the activeTiles. Used to check if the user clicked the correct ones
+
+        Log.i("tag", "Play Game: After List");
+
+        // Pick X number of tiles (set by the difficulty) that need to be remember by the user. That means that they will change bg color (light up)
+        while (activeTileIds.size() < squaresToRemember) {
+            int randomIndex = random.nextInt(imageViews.length);
+            String tileId = context.getResources().getResourceEntryName(imageViews[randomIndex].getId());
+            activeTileIds.add(tileId);
+        }
+
+        Log.i("tag", "Play Game: After While");
+
+        // Add the randomly selected tileIds to the GameClass instance
+        gameClass.setActiveTiles(activeTileIds);
+
+        Log.i("tag", "-----------------");
+        for (String t : activeTileIds) {
+            Log.i("tag", "activeTileIds " + t);
+        }
+        Log.i("tag", "-----------------");
+
+        Log.i("tag", "Play Game: Add to instance ActiveTiles");
+
+        // Trying New Code - Ran out of time - Ran into issues trying to get the ImageView Id to change the BG
+        // Change Tile bg color
+            /*
+        for (String tileId : activeTileIds) {
+            Log.i("tag", "Play Game: For change BG Color - Start");
+
+            ImageView imageView = null;
+            for (ImageView iv : imageViews) {
+                if (iv.getTag() != null && iv.getTag().equals(tileId)) {
+                    imageView = iv;
+                    break;
+                }
+            }
+            if (imageView != null) {
+                imageView.setBackgroundColor(ContextCompat.getColor(context, R.color.tileOn));
+                Log.i("tag", "Play Game: For change BG Color - set BG");
+                Log.i("tag", "Stored randomly generated tiles");
+                Log.i("tag", tileId);
+            } else {
+                Log.e("tag", "ImageView not found for tile ID: " + tileId);
+            }
+
+            /*
+            int resourceId = context.getResources().getIdentifier(tileId, "id", context.getPackageName());
+            Log.i("tag", "Play Game: For change BG Color - resourceId " + resourceId);
+            Log.i("tag", "-----------------");
+            ImageView imageView = ((Activity) context).findViewById(resourceId);
+            Log.i("tag", "Play Game: For change BG Color - imageView");
+            imageView.setBackgroundColor(ContextCompat.getColor(context, R.color.tileOn));
+            Log.i("tag", "Play Game: For change BG Color - set BG");
+            Log.i("tag", "Stored randomly generated tiles");
+            Log.i("tag", tileId);
+        }
+            */
+
+        // Old Code, working
         Set<Integer> chosenArrayIndices = new HashSet<>();
         while (chosenArrayIndices.size() < squaresToRemember) {
             chosenArrayIndices.add(random.nextInt(imageViews.length));
         }
 
         // Change tile color (Light up)
+        // Old Code working
         for (int index : chosenArrayIndices) {
             imageViews[index].setBackgroundColor(ContextCompat.getColor(context, R.color.tileOn));
         }
@@ -123,6 +188,12 @@ public class GameViewModel extends ViewModel {
                     // Go back to the original tile color after 5 seconds
                     for (int index : chosenArrayIndices) {
                         imageViews[index].setBackgroundColor(ContextCompat.getColor(context, R.color.tileOff));
+
+                        // Part of the new code I was trying - Ran out of Time
+                        // for (String tileId : activeTileIds) {
+                        // int resourceId = context.getResources().getIdentifier(tileId, "id", context.getPackageName());
+                        // ImageView imageView = ((Activity) context).findViewById(resourceId);
+                        // imageView.setBackgroundColor(ContextCompat.getColor(context, R.color.tileOff));
                     }
 
                     // Reset countdown timer
@@ -130,7 +201,6 @@ public class GameViewModel extends ViewModel {
                 }
             }
         }, 1000);
-
 
     }
 }

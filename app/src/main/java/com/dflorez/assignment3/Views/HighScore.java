@@ -42,7 +42,7 @@ public class HighScore extends AppCompatActivity {
         //====================
         // TODO: Only used during development
         // Reset Stored Scores
-        // ScoresManager.resetHighScores(getApplicationContext());
+        ScoresManager.resetHighScores(getApplicationContext());
 
         // Instantiate the ViewModel with a reference to the ViewModel Class
         viewModel = new ViewModelProvider(this).get(GameViewModel.class);

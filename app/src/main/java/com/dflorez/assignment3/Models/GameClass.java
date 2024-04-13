@@ -1,5 +1,8 @@
 package com.dflorez.assignment3.Models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GameClass {
     //====================
     // Global Variables / Constants
@@ -16,6 +19,7 @@ public class GameClass {
     private Integer VictoryCounter; // Every 3 won rounds, difficulty increases == more squares light up
     private Integer SquaresToRemember; // Number of squares to remember
     private Integer Score; // Earn 10 points per won round
+    private List<String> ActiveTiles; // Stores the highlighted tiles. Useful to check if the user clicked the correct tile
 
     //====================
     // Setters/Getters
@@ -72,6 +76,14 @@ public class GameClass {
         Score = score;
     }
 
+    public Integer getActiveTiles() {
+        return Score;
+    }
+
+    public void setActiveTiles(List<String> activeTiles) {
+        ActiveTiles = activeTiles;
+    }
+
     //====================
     // Constructors
     //====================
@@ -90,6 +102,7 @@ public class GameClass {
         setVictoryCounter(0); // No wins yet
         setScore(0);
         squaresToLightUp(getDifficulty());
+        setActiveTiles(new ArrayList<>()); // Initializes List to hold ActiveTiles
     }
 
     // Non-default
